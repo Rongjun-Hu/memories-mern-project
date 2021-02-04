@@ -125,7 +125,7 @@ const Auth = () => {
           <Button
             type="submit"
             fullWidth
-            varient="contained"
+            variant="contained"
             color="primary"
             className={classes.submit}
           >
