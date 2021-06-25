@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://memories-crud-auth.herokuapp.com/",
+  baseURL: "https://memory-crud-auth.herokuapp.com/",
   // https://memories-crud-auth.herokuapp.com/posts/search?searchQuery=qwe&tags=
 });
 
