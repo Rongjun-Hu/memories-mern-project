@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://memories-crud-auth.herokuapp.com/",
+  baseURL: "https://memory-mern-crud.herokuapp.com/",
 });
 
 API.interceptors.request.use((req) => {
