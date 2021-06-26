@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import FileBase from "react-file-base64";
 import { TextField, Button, Typography, Paper } from "@material-ui/core";
 import useStyles from "./styles";
@@ -15,8 +16,12 @@ const Form = ({ currentId, setCurrentId }) => {
     selectedFile: "",
   });
 
+  const history = useHistory();
+
   const post = useSelector((state) =>
-    currentId ? state.posts.find((message) => message._id === currentId) : null
+    currentId
+      ? state.posts.posts.find((message) => message._id === currentId)
+      : null
   );
 
   const dispatch = useDispatch();
@@ -34,9 +39,10 @@ const Form = ({ currentId, setCurrentId }) => {
       dispatch(
         updatePost(currentId, { ...postData, name: user?.result?.name })
       );
+
       clear();
     } else {
-      dispatch(createPost({ ...postData, name: user?.result?.name }));
+      dispatch(createPost({ ...postData, name: user?.result?.name }, history));
       clear();
     }
   };
