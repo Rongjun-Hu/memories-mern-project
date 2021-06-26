@@ -25,6 +25,7 @@ const Home = () => {
   const [currentId, setCurrentId] = useState(null);
   const [search, setSearch] = useState("");
   const [tags, setTags] = useState([]);
+
   const classes = useStyles();
   const dispatch = useDispatch();
   const history = useHistory();
@@ -46,10 +47,6 @@ const Home = () => {
   const handleDelete = (tagToDelete) => {
     setTags(tags.filter((tag) => tag !== tagToDelete));
   };
-
-  useEffect(() => {
-    dispatch(getPosts());
-  }, [currentId, dispatch]);
 
   // const searchPost = () => {
   //   if (search.trim() || tags) {
@@ -122,9 +119,11 @@ const Home = () => {
               </Button>
             </AppBar>
             <Form currentId={currentId} setCurrentId={setCurrentId} />
-            <Paper elevation={6}>
-              <Pagination className={classes.pagination} />
-            </Paper>
+            {!searchQuery && !tags.length && (
+              <Paper elevation={6} className={classes.pagination}>
+                <Pagination className={classes.pagination} page={page} />
+              </Paper>
+            )}
           </Grid>
         </Grid>
       </Container>

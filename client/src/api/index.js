@@ -2,6 +2,7 @@ import axios from "axios";
 
 const API = axios.create({
   baseURL: "https://memory-crud-auth.herokuapp.com/",
+  // baseURL: "http://localhost:5000",
   // https://memories-crud-auth.herokuapp.com/posts/search?searchQuery=qwe&tags=
 });
 
@@ -15,7 +16,8 @@ API.interceptors.request.use((req) => {
   return req;
 });
 
-export const fetchPosts = () => API.get("/posts");
+export const fetchPost = (id) => API.get(`/posts/${id}`);
+export const fetchPosts = (page) => API.get(`/posts?page=${page}`);
 export const fetchPostsBySearch = (searchQuery) =>
   API.get(
     `/posts/search?searchQuery=${searchQuery.search || "none"}&tags=${
