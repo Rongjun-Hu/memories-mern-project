@@ -7,6 +7,7 @@ import {
   FETCH_BY_SEARCH,
   START_LOADING,
   END_LOADING,
+  COMMENT,
 } from "../constants/actionTypes";
 import * as api from "../api";
 
@@ -54,6 +55,16 @@ export const getPostsBySearch = (searchQuery) => async (dispatch) => {
     dispatch({ type: END_LOADING });
   } catch (error) {
     console.log(error.message);
+  }
+};
+
+export const commentPost = (value, id) => async (dispatch) => {
+  try {
+    const { data } = await api.comment(value, id);
+    dispatch({ type: COMMENT, payload: data });
+    return data.comments;
+  } catch (error) {
+    console.log(error);
   }
 };
 
