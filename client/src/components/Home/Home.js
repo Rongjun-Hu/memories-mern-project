@@ -104,8 +104,8 @@ const Home = () => {
               <ChipInput
                 style={{ margin: "10px 0" }}
                 value={tags}
-                onAdd={handleAdd}
-                onDelete={handleDelete}
+                onAdd={(tag) => handleAdd(tag)}
+                onDelete={(tag) => handleDelete(tag)}
                 label="Search Tags"
                 variant="outlined"
               />
