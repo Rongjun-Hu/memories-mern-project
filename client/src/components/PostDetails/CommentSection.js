@@ -40,14 +40,14 @@ const CommentSection = ({ post }) => {
         </div>
         {user?.result?.name && (
           <div style={{ width: "70%" }}>
-            <Typography gutterBottom variant="h6">
+            {/* <Typography gutterBottom variant="h6">
               Write a comment
-            </Typography>
+            </Typography> */}
             <TextField
               fullWidth
-              rows={4}
+              rows={7}
               variant="outlined"
-              label="Comment"
+              label="Write a comment"
               multiline
               value={comment}
               onChange={(e) => setComment(e.target.value)}
