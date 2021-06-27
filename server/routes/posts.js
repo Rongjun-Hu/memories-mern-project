@@ -16,7 +16,7 @@ const router = express.Router();
 router.get("/", getPosts);
 router.get("/search", getPostsBySearch);
 router.get("/:id", getPost);
-router.patch("/:id/commentPost", commentPost);
+router.post("/:id/commentPost", commentPost);
 
 // Require auth middleware
 router.post("/", auth, createPost);
