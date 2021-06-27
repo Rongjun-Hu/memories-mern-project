@@ -78,7 +78,7 @@ const PostDetails = () => {
           </Typography>
           <Divider style={{ margin: "20px 0" }} />
           <CommentSection post={post} />
-          <Divider style={{ margin: "20px 0" }} />
+          {/* <Divider style={{ margin: "20px 0" }} /> */}
           {/* <CommentSection post={post} /> */}
           <Divider style={{ margin: "20px 0" }} />
         </div>
@@ -93,7 +93,7 @@ const PostDetails = () => {
           />
         </div>
       </div>
-      {recommendedPosts.length && (
+      {!!recommendedPosts.length && (
         <div className={classes.section}>
           <Typography gutterBottom variant="h5">
             You might also like:
