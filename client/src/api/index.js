@@ -2,6 +2,9 @@ import axios from "axios";
 
 const API = axios.create({
   baseURL: "https://memory-crud-auth.herokuapp.com",
+  headers: {
+    'Access-Control-Allow-Origin': 'https://memories-crud-auth.netlify.app'
+  }
   // baseURL: "http://localhost:5000",
   // https://memories-crud-auth.herokuapp.com/posts/search?searchQuery=qwe&tags=
 });
